@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">CKLite</string>
+    <string name="action_settings">Settings</string>
+    <string name="expiryDate">MM/YY</string>
+    <string name="cvv">***</string>
+    <string name="card_number">**** **** **** ****</string>
+    <string name="purchase_airtime">Purchase Airtime</string>
+    <string name="info_text">Our internet/mobile data plan works with all devices e.g Android, Iphone, Blackberry(OS 10), computers, modems e.t.c. Data rollover if you re-subscribe before expiry of current plan.</string>
+    <string name="balance_info">To check your data balance: MTN >> *461*2*3*2# | 9mobile >> *228# | GLO >> *127*0# | AirTel >> *140# | Validity 30 - 90 days</string>
+    <string name="description">Select your preferred airtime amount, the default is N100.</string>
+    <string name="data_description">Select your preferred data plan size.</string>
+    <string name="cable_description">Select your preferred cable package</string>
+    <string name="default_airtime_amt">100</string>
+    <string name="purchase_data_bundle">Purchase DataBundle</string>
+    <string name="purchase_cable_tv">Purchase CableTVSub</string>
+    <string name="issues">For issues/complaints, please Whatsapp/call: 08183199734</string>
+    <string-array name="networks">
+        <item>100</item>
+        <item>500</item>
+        <item>1000</item>
+    </string-array>
+
+    <!--data plans -->
+    <!--________________GLO__________________ -->
+    <string-array name="gloDataPlans">
+        <item>2GB    - N1000</item>
+        <item>4.5GB  - N1900</item>
+        <item>7.2GB  - N2300</item>
+        <item>8.75GB - N2800</item>
+        <item>15.6GB - N4500</item>
+        <item>25GB   - N7000</item>
+    </string-array>
+
+    <!--________________MTN__________________ -->
+    <string-array name="mtnDataPlans">
+        <item>1GB  - N600</item>
+        <item>2GB  - N1200</item>
+        <item>5GB  - N3000</item>
+    </string-array>
+
+    <!--________________9mobile__________________ -->
+    <string-array name="nineMobileDataPlans">
+        <item>500MB  - N500</item>
+        <item>1GB    - N1000</item>
+        <item>1.5GB  - N1200</item>
+        <item>2.5GB  - N2000</item>
+        <item>4GB - N3000</item>
+    </string-array>
+
+    <!--________________airtel__________________ -->
+    <string-array name="airtelDataPlans">
+        <item>1.5GB  - N1000</item>
+        <item>3.5GB  - N2000</item>
+        <item>7GB    - N3500</item>
+        <item>10GB   - N4900</item>
+    </string-array>
+
+    <!-- cable TV packages -->
+    <!--________________dstv__________________ -->
+    <string-array name="dstvPackages">
+        <item>DStv Access - N2000</item>
+        <item>DStv Family - N4000</item>
+        <item>DStv Compact - N6800</item>
+    </string-array>
+
+    <!--________________gotv__________________ -->
+    <string-array name="gotvPackages">
+        <item>GOtv Lite - N400</item>
+        <item>GOtv Value - N1250</item>
+        <item>GOtv Plus - N1900</item>
+        <item>GOtv Max - N3200</item>
+    </string-array>
+
+    <!--________________starTimes__________________ -->
+    <string-array name="starTimesPackages">
+        <item>StarTimes Nova - N900</item>
+        <item>StarTimes Basic - N1300</item>
+        <item>StarTimes Smart - N1900</item>
+        <item>StarTimes Classic - N2600</item>
+    </string-array>
+
+</resources>

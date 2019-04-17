@@ -1,0 +1,19 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml:1:1-52
+INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml:1:1-52
+INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml:1:1-52
+	package
+		ADDED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml:1:11-50
+		INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml:1:1-52
+uses-sdk
+INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml
+INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml
+		ADDED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\COMPAQ\AndroidStudioProjects\CKLite\taptargetview\src\main\AndroidManifest.xml

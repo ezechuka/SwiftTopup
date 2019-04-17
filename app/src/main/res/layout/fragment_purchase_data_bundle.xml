@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/infoBalance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical|right"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@string/balance_info"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+
+        <RelativeLayout
+            android:id="@+id/creditCard"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/infoBalance"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/credit_card">
+
+            <TextView
+                android:id="@+id/credit_card_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="88dp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:text="@string/card_number"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/expire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/credit_card_number"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="EXPIRE"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/expireTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/expire"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/expiryDate"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/cvvText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/expire"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@id/expire"
+                android:text="CVV"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cvvTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/expireTextView"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@id/expireTextView"
+                android:gravity="end"
+                android:text="@string/cvv"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/networkIcon"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="29dp"
+                android:src="@drawable/glo"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/cardInputLayout"
+            android:layout_below="@id/creditCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/card_number_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/creditCard"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="10dp"
+                android:drawablePadding="4dp"
+                android:drawableStart="@drawable/ic_credit_card_black_24dp"
+                android:hint="Credit card number"
+                android:inputType="number"
+                android:maxLength="16" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardInputLayout"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/expiryDateEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawableStart="@drawable/ic_date_range_black_24dp"
+                    android:drawablePadding="4dp"
+                    android:hint="MMYY"
+                    android:inputType="number"
+                    android:maxLength="4" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/cvvEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="2"
+                    android:hint="CVV"
+                    android:drawablePadding="4dp"
+                    android:drawableStart="@drawable/ic_lock_black_24dp"
+                    android:inputType="number"
+                    android:maxLength="3" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+
+                <EditText
+                    android:id="@+id/dataPlan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:focusable="false"
+                    android:hint="Data Plan" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/holder"
+            android:id="@+id/phoneInputLayout">
+
+            <EditText
+                android:id="@+id/phoneNumberEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/holder"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:drawablePadding="4dp"
+                android:drawableStart="@drawable/ic_phone_black_24dp"
+                android:hint="Mobile Number"
+                android:inputType="number"
+                android:maxLength="11" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/paymentButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phoneInputLayout"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorAccent"
+            android:elevation="4dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="PURCHASE DATA BUNDLE"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/dataPlans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/cardInputLayout"
+            android:layout_alignEnd="@+id/cardInputLayout"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:elevation="16dp"
+            app:fabSize="normal"
+            app:rippleColor="@color/colorPrimaryDark"
+            app:srcCompat="@drawable/airtel_logo_2" />
+
+    </RelativeLayout>
+
+</ScrollView>
