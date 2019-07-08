@@ -1,10 +1,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.javalon.cklite.MainActivity">
+    tools:context="com.javalon.swifttopup.MainActivity">
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/transact_history"
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/about_us"
+        android:orderInCategory="100"
+        android:title="@string/about_us"
+        app:showAsAction="never"/>
+
+    <item
+        android:icon="@drawable/ic_info_outline_black"
+        android:id="@+id/more_info"
+        android:orderInCategory="100"
+        android:title="@string/more_info_text"
+        app:showAsAction="ifRoom"/>
 </menu>

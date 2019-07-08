@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PurchaseDialog">
+
+    <RelativeLayout
+        android:id="@+id/titleHolder"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:elevation="8dp"
+            android:fontFamily="@font/product_sans_regular"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/priceLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleHolder"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/product_sans_regular"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:text="@string/priceLabel"
+        android:gravity="center_vertical|center_horizontal"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/priceLabel"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="6dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/product_sans_regular"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="₦510.00"
+        android:gravity="center_vertical|center_horizontal"/>
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/priceTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="@font/product_sans_regular"
+        app:ms_arrow_tint="@color/colorPrimary"
+        app:ms_dropdown_max_height="220dp"
+        app:ms_padding_bottom="8dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/mobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/priceTag"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="8dp">
+
+        <EditText
+            android:id="@+id/mobileNumberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_bg"
+            android:drawableStart="@drawable/ic_phone_black_24dp"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/product_sans_regular"
+            android:hint="Mobile Number"
+            android:inputType="number"
+            android:maxLength="11"
+            android:padding="8dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/purchase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mobileNumber"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/button_bg"
+        android:elevation="8dp"
+        android:fontFamily="@font/product_sans_regular"
+        android:text="PURCHASE"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

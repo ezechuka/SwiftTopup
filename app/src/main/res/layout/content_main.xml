@@ -8,29 +8,25 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/infoTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ellipsize="marquee"
-        android:focusable="true"
-        android:fontFamily="sans-serif"
-        android:gravity="center_vertical|right"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
-        android:text="@string/info_text"
-        android:textColor="@android:color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:typeface="sans" />
-
-
     <android.support.v4.view.ViewPager
         android:id="@+id/overview_viewpager"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/card_details"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/infoTextView"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_credit_card"
+        app:borderWidth="4dp"
+        app:elevation="4dp"
+        app:fabSize="normal"
+        app:rippleColor="@color/colorPrimary" />
 
 </RelativeLayout>

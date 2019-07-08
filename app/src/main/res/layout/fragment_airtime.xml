@@ -1,214 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none">
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:weightSum="2"
+    tools:context=".AirtimeFragment">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <!-- first row -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/firstRow"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".AirtimeFragment">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-        <LinearLayout
-            android:id="@+id/firstRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+        <android.support.v7.widget.CardView
+            android:id="@+id/mtnNetwork"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/mtnNetwork"
-                android:layout_width="140dp"
-                android:layout_height="200dp"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="2dp"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:focusable="true"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
-                app:cardPreventCornerOverlap="false">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <com.joooonho.SelectableRoundedImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="6"
+                    android:src="@drawable/mtn_logo_1"
+                    app:sriv_left_bottom_corner_radius="2dp"
+                    app:sriv_left_top_corner_radius="2dp" />
 
-                    <com.joooonho.SelectableRoundedImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="165dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/mtn_logo_1"
-                        app:sriv_left_top_corner_radius="2dp"
-                        app:sriv_right_top_corner_radius="2dp"
-                        app:sriv_left_bottom_corner_radius="2dp"
-                        app:sriv_right_bottom_corner_radius="2dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="sans-serif"
-                        android:gravity="center_horizontal"
-                        android:text="MTN"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/gloNetwork"
-                android:layout_width="140dp"
-                android:layout_height="200dp"
-                android:elevation="4dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:layout_marginTop="8dp"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="4dp"
-                app:cardPreventCornerOverlap="false">
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/product_sans_regular"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="MTN"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
-                    <com.joooonho.SelectableRoundedImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="165dp"
-                        android:adjustViewBounds="false"
-                        android:scaleType="centerCrop"
-                        app:sriv_left_top_corner_radius="2dp"
-                        app:sriv_right_top_corner_radius="2dp"
-                        app:sriv_left_bottom_corner_radius="2dp"
-                        app:sriv_right_bottom_corner_radius="2dp"
-                        android:src="@drawable/glo" />
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="sans-serif"
-                        android:gravity="center_horizontal"
-                        android:text="GLO"
-                        android:textColor="@android:color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+        </android.support.v7.widget.CardView>
 
-                </LinearLayout>
+        <android.support.v7.widget.CardView
+            android:id="@+id/gloNetwork"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false">
 
-            </android.support.v7.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/secondRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/firstRow"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/nineMobileNetwork"
-                android:layout_width="140dp"
-                android:elevation="4dp"
-                android:focusable="true"
-                android:layout_height="200dp"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="8dp"
-                android:clickable="true"
-                app:cardElevation="4dp"
-                app:cardPreventCornerOverlap="false">
-
-                <LinearLayout
+                <com.joooonho.SelectableRoundedImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="0dp"
+                    android:layout_weight="6"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/glo"
+                    app:sriv_left_bottom_corner_radius="2dp"
+                    app:sriv_left_top_corner_radius="2dp" />
 
-                    <com.joooonho.SelectableRoundedImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="165dp"
-                        app:sriv_left_top_corner_radius="2dp"
-                        app:sriv_right_top_corner_radius="2dp"
-                        app:sriv_left_bottom_corner_radius="2dp"
-                        app:sriv_right_bottom_corner_radius="2dp"
-                        android:adjustViewBounds="false"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/nine_mobile_logo_1" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="sans-serif"
-                        android:gravity="center_horizontal"
-                        android:text="9mobile"
-                        android:textColor="@android:color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/airtelNetwork"
-                android:focusable="true"
-                android:elevation="4dp"
-                android:layout_width="140dp"
-                android:layout_height="200dp"
-                android:clickable="true"
-                android:layout_margin="8dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
-                app:cardPreventCornerOverlap="false">
-
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/product_sans_regular"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="GLO"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-                    <com.joooonho.SelectableRoundedImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="165dp"
-                        app:sriv_left_top_corner_radius="2dp"
-                        app:sriv_right_top_corner_radius="2dp"
-                        app:sriv_left_bottom_corner_radius="2dp"
-                        app:sriv_right_bottom_corner_radius="2dp"
-                        android:adjustViewBounds="false"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/airtel_logo_2" />
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="sans-serif"
-                        android:gravity="center_horizontal"
-                        android:text="AIRTEL"
-                        android:textColor="@android:color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+        </android.support.v7.widget.CardView>
 
-                </LinearLayout>
+    </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+    <!-- second row -->
+    <LinearLayout
+        android:id="@+id/secondRow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-        </LinearLayout>
+        <android.support.v7.widget.CardView
+            android:id="@+id/airtelNetwork"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false">
 
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-</ScrollView>
+                <com.joooonho.SelectableRoundedImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/airtel_logo_2"
+                    app:sriv_left_bottom_corner_radius="2dp"
+                    app:sriv_left_top_corner_radius="2dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/product_sans_regular"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="AIRTEL"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/nineMobileNetwork"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="8dp"
+            app:cardPreventCornerOverlap="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.joooonho.SelectableRoundedImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6"
+                    android:adjustViewBounds="false"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nine_mobile_logo_1"
+                    app:sriv_left_bottom_corner_radius="2dp"
+                    app:sriv_left_top_corner_radius="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/product_sans_regular"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="9mobile"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</LinearLayout>

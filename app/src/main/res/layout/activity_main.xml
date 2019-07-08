@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:id="@+id/app_ui"
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -27,7 +28,6 @@
             app:tabGravity="center"
             app:tabIndicatorColor="@android:color/white"
             app:tabIndicatorHeight="4dp"
-            app:tabMode="scrollable"
             app:tabPaddingEnd="20dp"
             app:tabPaddingStart="20dp"
             app:tabPaddingTop="8dp"
