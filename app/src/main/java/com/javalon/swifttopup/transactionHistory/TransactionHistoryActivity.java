@@ -1,24 +1,24 @@
 package com.javalon.swifttopup.transactionHistory;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.transition.TransitionManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.javalon.swifttopup.Constants;
 import com.javalon.swifttopup.QueryTransact;
 import com.javalon.swifttopup.R;
 
 import java.util.ArrayList;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.TransitionManager;
 import io.paperdb.Paper;
 
 public class TransactionHistoryActivity extends AppCompatActivity {
@@ -64,7 +64,7 @@ public class TransactionHistoryActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.clear_transact_history) {
-            AlertDialog.Builder clearDialog = new AlertDialog.Builder(TransactionHistoryActivity.this);
+            MaterialAlertDialogBuilder clearDialog = new MaterialAlertDialogBuilder(TransactionHistoryActivity.this);
             clearDialog.setTitle("Alert");
             clearDialog.setMessage("Do you want to clear all transaction history?");
             clearDialog.setCancelable(true);

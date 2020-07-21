@@ -5,21 +5,19 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.text.SimpleDateFormat;
@@ -30,6 +28,9 @@ import java.util.Date;
 import java.util.Set;
 import java.util.TreeSet;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import co.paystack.android.Paystack;
 import co.paystack.android.PaystackSdk;
 import co.paystack.android.Transaction;
@@ -50,14 +51,14 @@ public class PurchaseDialog extends DialogFragment {
     private String title;
     private String amount;
     private PurchaseTransact purchaseTransact;
-    private EditText mobileNumberEditText;
+    private TextInputEditText mobileNumberEditText;
     private String tag;
     private String dataAmount;
     private String[][] dataTags = {
             {"1000", "2000", "5000"}, // MTN TAGS
-            {"1600.01", "3750.01", "5000.01", "6000.01", "8000.01"}, // GLO TAG
+            {"1600.01", "3750.01", "5000.01"}, //, "6000.01", "8000.01"}, // GLO TAG
             {"500.01", "1000.01", "1500.01", "2500.01", "4000.01"}, // 9mobile TAG
-            {"1500.01", "3500.01", "7000.01", "10000.01"} // AIRTEL TAG
+            {"1500.01", "3500.01", "7000.01"} //, "10000.01"} // AIRTEL TAG
     };
     private static ArrayList<QueryTransact> queryLogs;
     private static Set<String> validPhoneNumbers;
@@ -66,6 +67,7 @@ public class PurchaseDialog extends DialogFragment {
     private static boolean validity;
     private static boolean isValidPhoneNumber;
     private static String paymentReference;
+    private static final String requestID = "12345";
 
     // create callback interface
     interface BooleanCallback {
@@ -76,6 +78,12 @@ public class PurchaseDialog extends DialogFragment {
         void onSuccess(boolean result);
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        tag = getArguments().getString("tag");
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -83,7 +91,7 @@ public class PurchaseDialog extends DialogFragment {
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_purchase_dialog, null);
         Paper.init(getContext());
         PaystackSdk.initialize(getContext());
-        PaystackSdk.setPublicKey(Constants.LIVE_PUBLIC_KEY);
+        PaystackSdk.setPublicKey(Constants.TEST_PUBLIC_KEY);
 
         titleTextView = dialogView.findViewById(R.id.title);
         titleTextView.setText(title);
@@ -156,7 +164,7 @@ public class PurchaseDialog extends DialogFragment {
         // set valid numbers
         validPhoneNumbers = Paper.book().read(Constants.VALID_NUMBERS, new TreeSet<String>());
 
-        Button purchaseButton = dialogView.findViewById(R.id.purchase);
+        MaterialButton purchaseButton = dialogView.findViewById(R.id.purchase);
         purchaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,7 +187,7 @@ public class PurchaseDialog extends DialogFragment {
                                 if (result)
                                     dataBundleRequest();
                             }
-                        }, (int)Double.parseDouble(dataAmount) * 100);
+                        }, (int) Double.parseDouble(dataAmount) * 100);
                         break;
                 }
             }
@@ -198,27 +206,14 @@ public class PurchaseDialog extends DialogFragment {
         this.title = title;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
     private void airtimeRequest() {
         String phoneNumber = mobileNumberEditText.getText().toString();
-
-        StringBuilder purchaseUrl = new StringBuilder();
-        purchaseUrl.append("APIAirtimeV1.asp?");
-        purchaseUrl.append("UserID").append("=").append(Constants.USER_ID).append("&");
-        purchaseUrl.append("APIKey").append("=").append(Constants.API_KEY).append("&");
-        purchaseUrl.append("MobileNetwork").append("=").append(mobileNetwork).append("&");
-        purchaseUrl.append("Amount").append("=").append(amount).append("&");
-        purchaseUrl.append("MobileNumber").append("=").append(phoneNumber).append("&");
-        purchaseUrl.append("CallBackURL").append("=").append("www.google.com");
-        Log.e("CKLite", purchaseUrl.toString());
 
         // make purchase request
         progressDialog.setMessage("Performing airtime purchase...");
         progressDialog.show();
-        Api.getClient().purchase(purchaseUrl.toString()).enqueue(new Callback<PurchaseTransact>() {
+        Api.getClient().purchaseAirtime(Constants.USER_ID, Constants.API_KEY, mobileNetwork,
+                amount, phoneNumber, "123", "www.google.com").enqueue(new Callback<PurchaseTransact>() {
             @Override
             public void onResponse(Call<PurchaseTransact> call, Response<PurchaseTransact> response) {
                 if (response.isSuccessful()) {
@@ -230,14 +225,7 @@ public class PurchaseDialog extends DialogFragment {
                     purchaseTransact = response.body();
                     String orderID = purchaseTransact.getOrderid();
 
-                    // make query request
-                    StringBuilder queryUrl = new StringBuilder();
-                    queryUrl.append("APIQueryV1.asp?");
-                    queryUrl.append("UserID").append("=").append(Constants.USER_ID).append("&");
-                    queryUrl.append("APIKey").append("=").append(Constants.API_KEY).append("&");
-                    queryUrl.append("OrderID").append("=").append(orderID);
-
-                    Api.getClient().queryPurchase(queryUrl.toString()).enqueue(new Callback<QueryTransact>() {
+                    Api.getClient().queryPurchase(Constants.USER_ID, Constants.API_KEY, orderID).enqueue(new Callback<QueryTransact>() {
                         @Override
                         public void onResponse(Call<QueryTransact> call, Response<QueryTransact> response) {
                             // dismiss dialog
@@ -252,10 +240,10 @@ public class PurchaseDialog extends DialogFragment {
                             Paper.book().write(Constants.QUERY_LOGS, queryLogs); // save queryLogs to internal memory
 
                             // clear card details
-                            Paper.book().delete(Constants.STATUS);
-                            Paper.book().delete(Constants.CARD_NUMBER);
-                            Paper.book().delete(Constants.CVV);
-                            Paper.book().delete(Constants.EXPIRY_DATE);
+//                            Paper.book().delete(Constants.STATUS);
+//                            Paper.book().delete(Constants.CARD_NUMBER);
+//                            Paper.book().delete(Constants.CVV);
+//                            Paper.book().delete(Constants.EXPIRY_DATE);
 
                             // display success dialog
                             new MaterialStyledDialog.Builder(getContext())
@@ -298,20 +286,13 @@ public class PurchaseDialog extends DialogFragment {
 
     private void dataBundleRequest() {
         String phoneNumber = mobileNumberEditText.getText().toString();
-        StringBuilder purchaseUrl = new StringBuilder();
-        purchaseUrl.append("APIDatabundleV1.asp?");
-        purchaseUrl.append("UserID").append("=").append(Constants.USER_ID).append("&");
-        purchaseUrl.append("APIKey").append("=").append(Constants.API_KEY).append("&");
-        purchaseUrl.append("MobileNetwork").append("=").append(mobileNetwork).append("&");
-        purchaseUrl.append("DataPlan").append("=").append(dataTags[Integer.parseInt(mobileNetwork) - 1][priceTagSpinner.getSelectedIndex()]).append("&");
-        purchaseUrl.append("MobileNumber").append("=").append(phoneNumber).append("&");
-        purchaseUrl.append("CallBackURL").append("=").append("www.google.com");
-        Log.e("CKLite", purchaseUrl.toString());
 
         // make purchase request
         progressDialog.setMessage("Performing data bundle purchase...");
         progressDialog.show();
-        Api.getClient().purchase(purchaseUrl.toString()).enqueue(new Callback<PurchaseTransact>() {
+        Api.getClient().purchaseData(Constants.USER_ID, Constants.API_KEY,
+                mobileNetwork, dataTags[Integer.parseInt(mobileNetwork) - 1][priceTagSpinner.getSelectedIndex()],
+                phoneNumber, "123", "www.google.com").enqueue(new Callback<PurchaseTransact>() {
             @Override
             public void onResponse(Call<PurchaseTransact> call, Response<PurchaseTransact> response) {
                 if (response.isSuccessful()) {
@@ -321,16 +302,10 @@ public class PurchaseDialog extends DialogFragment {
                     final String time = simpleDateFormat.format(date);
 
                     purchaseTransact = response.body();
+                    Toast.makeText(getContext(), purchaseTransact.getStatus(), Toast.LENGTH_LONG).show();
                     String orderID = purchaseTransact.getOrderid();
 
-                    // make query request
-                    StringBuilder queryUrl = new StringBuilder();
-                    queryUrl.append("APIQueryV1.asp?");
-                    queryUrl.append("UserID").append("=").append(Constants.USER_ID).append("&");
-                    queryUrl.append("APIKey").append("=").append(Constants.API_KEY).append("&");
-                    queryUrl.append("OrderID").append("=").append(orderID);
-
-                    Api.getClient().queryPurchase(queryUrl.toString()).enqueue(new Callback<QueryTransact>() {
+                    Api.getClient().queryPurchase(Constants.USER_ID, Constants.API_KEY, orderID).enqueue(new Callback<QueryTransact>() {
                         @Override
                         public void onResponse(Call<QueryTransact> call, Response<QueryTransact> response) {
                             // dismiss dialog
@@ -471,14 +446,8 @@ public class PurchaseDialog extends DialogFragment {
         }
 
         // phone request builder
-        StringBuilder phoneRequestBuilder = new StringBuilder();
-        phoneRequestBuilder.append("api/validate?");
-        phoneRequestBuilder.append("access_key").append("=").append(Constants.ACCESS_KEY).append("&");
-        phoneRequestBuilder.append("number").append("=").append(phoneNumber).append("&");
-        phoneRequestBuilder.append("country_code").append("=").append("NG").append("&");
-        phoneRequestBuilder.append("format").append("=").append("1");
-
-        Api.getPhoneClient().verifyNumber(phoneRequestBuilder.toString()).enqueue(new Callback<VerifyPhoneNumber>() {
+        Api.getPhoneClient().verifyNumber(Constants.ACCESS_KEY, phoneNumber,
+                "NG", "1").enqueue(new Callback<VerifyPhoneNumber>() {
             @Override
             public void onResponse(Call<VerifyPhoneNumber> call, Response<VerifyPhoneNumber> response) {
                 if (response.isSuccessful()) {

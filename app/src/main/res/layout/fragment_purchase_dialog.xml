@@ -71,31 +71,31 @@
         app:ms_dropdown_max_height="220dp"
         app:ms_padding_bottom="8dp" />
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/mobileNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/priceTag"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="12dp"
+        android:hint="Mobile Number"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginRight="8dp">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/mobileNumberEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_bg"
             android:drawableStart="@drawable/ic_phone_black_24dp"
             android:drawablePadding="4dp"
             android:fontFamily="@font/product_sans_regular"
-            android:hint="Mobile Number"
             android:inputType="number"
             android:maxLength="11"
             android:padding="8dp" />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/purchase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -104,7 +104,8 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/button_bg"
+        app:backgroundTint="@color/colorAccent"
+        android:padding="12dp"
         android:elevation="8dp"
         android:fontFamily="@font/product_sans_regular"
         android:text="PURCHASE"

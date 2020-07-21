@@ -6,7 +6,7 @@
     <string name="card_number">**** **** **** ****</string>
     <string name="purchase_airtime">Purchase Airtime</string>
     <string name="more_info">Our internet/mobile data plan works with all devices e.g Android, Iphone, computers, modems e.t.c. Data rollover if you re-subscribe before expiry of current plan.
-        \n\n<b>To check your data balance:</b> \nMTN (90 days validity) >> <b>*461*2*3*2#</b> \n9mobile (30 days validity) >> <b>*228#</b> \nGLO (30 days validity) >> <b>*127*0#</b> \nAirTel (30 days validity) >> <b>*140#</b></string>
+        \n\n<b>To check your data balance:</b> \nMTN (90 days validity) >> <b>*461*4#</b> \n9mobile (30 days validity) >> <b>*228#</b> \nGLO (30 days validity) >> <b>*127*0#</b> \nAirTel (30 days validity) >> <b>*140#</b></string>
     <string name="description">SwiftTopUp is basically a Virtual Top-Up app that allows you buy cheap data bundles and airtime(at the normal rates)
         from the comfort of your current environment. For issues/enquires/suggestions, please Whatsapp/call: <b>08183199734, 08031510395.</b> </string>
     <string name="data_description">Select your preferred data plan size.</string>
@@ -16,6 +16,7 @@
     <string name="purchase_cable_tv">Purchase CableTVSub</string>
     <string name="card_details">Card Details</string>
     <string-array name="networks">
+        <item>50 Airtime</item>
         <item>100 Airtime</item>
         <item>200 Airtime</item>
         <item>500 Airtime</item>
@@ -25,34 +26,49 @@
     <!--data plans -->
     <!--________________GLO__________________ -->
     <string-array name="gloDataPlans">
-        <item>1.6GB/1.8GB  - N900</item>
-        <item>4GB/5GB      - N2000</item>
-        <item>5.7GB/7.2GB  - N3000</item>
-        <item>7GB/8.75GB   - N4200</item>
-        <item>10GB/12.5GB  - N5000</item>
+<!--        <item>350MB           - N194</item>-->
+<!--        <item>1.05GB/1.8GB    - N485</item>-->
+        <item>2GB     - N970</item>
+<!--        <item>5.8GB/9.5GB     - N1940</item>-->
+        <item>4.5GB   - N1940</item>
+        <item>7.2GB   - N2425</item>
+<!--        <item>10GB/17GB       - N2910</item>-->
     </string-array>
 
     <!--________________MTN__________________ -->
     <string-array name="mtnDataPlans">
-        <item>1GB  - N500</item>
-        <item>2GB  - N1000</item>
-        <item>5GB  - N2500</item>
+        <item>1GB    - N330</item>
+<!--        <item>1.5GB  - N960</item>-->
+        <item>2GB    - N660</item>
+<!--        <item>2.5GB  - N480</item>-->
+<!--        <item>3GB    - N1440</item>-->
+<!--        <item>4.5GB  - N1920</item>-->
+        <item>5GB    - N1650</item>
+<!--        <item>6GB    - N2400</item>-->
+<!--        <item>8GB    - N1650</item>-->
+<!--        <item>10GB   - N2880</item>-->
     </string-array>
 
     <!--________________9mobile__________________ -->
     <string-array name="nineMobileDataPlans">
-        <item>500MB  - N490</item>
-        <item>1GB    - N990</item>
-        <item>1.5GB  - N1200</item>
-        <item>2.5GB  - N1980</item>
-        <item>4GB    - N2950</item>
+        <item>500MB  - N477.50</item>
+        <item>1GB    - N955</item>
+        <item>1.5GB  - N1146</item>
+        <item>2.5GB  - N1432</item>
+        <item>4GB    - N1910</item>
+<!--        <item>7GB    - N1432.50</item>-->
     </string-array>
 
     <!--________________airtel__________________ -->
     <string-array name="airtelDataPlans">
-        <item>1.5GB  - N1000</item>
-        <item>3.5GB  - N2000</item>
-        <item>10GB   - N4900</item>
+<!--        <item>750MB  - N477.50</item>-->
+<!--        <item>1GB    - N286.50</item>-->
+<!--        <item>1.5GB  - N955</item>-->
+        <item>1.5GB  - N477.50</item>
+        <item>3.5GB  - N955.50</item>
+        <item>7GB    - N2865</item>
+<!--        <item>4.5GB  - N1910.00</item>-->
+<!--        <item>6GB    - N1432.50</item>-->
     </string-array>
 
     <!-- cable TV packages -->

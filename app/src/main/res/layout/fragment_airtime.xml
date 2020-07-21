@@ -7,6 +7,8 @@
     android:orientation="vertical"
     android:padding="8dp"
     android:weightSum="2"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:context=".AirtimeFragment">
 
     <!-- first row -->
@@ -17,9 +19,11 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:weightSum="2">
 
-        <android.support.v7.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/mtnNetwork"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -28,7 +32,8 @@
             android:layout_weight="1"
             android:clickable="true"
             android:focusable="true"
-            app:cardElevation="8dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="4dp"
             app:cardPreventCornerOverlap="false">
 
             <LinearLayout
@@ -59,9 +64,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <android.support.v7.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/gloNetwork"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -70,7 +75,8 @@
             android:layout_weight="1"
             android:clickable="true"
             android:focusable="true"
-            app:cardElevation="8dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="4dp"
             app:cardPreventCornerOverlap="false">
 
             <LinearLayout
@@ -103,7 +109,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
@@ -112,11 +118,13 @@
         android:id="@+id/secondRow"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:weightSum="2">
 
-        <android.support.v7.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/airtelNetwork"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -124,7 +132,8 @@
             android:layout_weight="1"
             android:clickable="true"
             android:focusable="true"
-            app:cardElevation="8dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="4dp"
             app:cardPreventCornerOverlap="false">
 
             <LinearLayout
@@ -158,9 +167,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <android.support.v7.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/nineMobileNetwork"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -168,7 +177,8 @@
             android:layout_weight="1"
             android:clickable="true"
             android:focusable="true"
-            app:cardElevation="8dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="4dp"
             app:cardPreventCornerOverlap="false">
 
             <LinearLayout
@@ -201,7 +211,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

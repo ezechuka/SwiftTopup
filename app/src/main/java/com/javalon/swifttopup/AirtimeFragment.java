@@ -1,13 +1,13 @@
 package com.javalon.swifttopup;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import io.paperdb.Paper;
 
 public class AirtimeFragment extends Fragment {
@@ -44,7 +44,12 @@ public class AirtimeFragment extends Fragment {
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     purchaseDialog.setPriceTag(priceTag, String.valueOf("0" + (finalI + 1)));
                     purchaseDialog.setTitle("PURCHASE AIRTIME (" + networks[finalI] + ")");
-                    purchaseDialog.setTag("1");
+//                    purchaseDialog.setTag("1");
+
+                    Bundle args = new Bundle();
+                    args.putString("tag", "1");
+                    purchaseDialog.setArguments(args);
+
                     purchaseDialog.show(transaction, "transaction");
                 }
             });

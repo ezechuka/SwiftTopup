@@ -1,12 +1,12 @@
 package com.javalon.swifttopup;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 import io.paperdb.Paper;
 
 public class DataBundleFragment extends Fragment {
@@ -47,7 +47,12 @@ public class DataBundleFragment extends Fragment {
                 public void onClick(View view) {
                     purchaseDialog.setPriceTag(priceTags[finalI], String.valueOf("0" + (finalI + 1)));
                     purchaseDialog.setTitle("PURCHASE DATA BUNDLE (" + networks[finalI] + ")");
-                    purchaseDialog.setTag("2");
+//                    purchaseDialog.setTag("2");
+
+                    Bundle args = new Bundle();
+                    args.putString("tag", "2");
+                    purchaseDialog.setArguments(args);
+
                     purchaseDialog.show(getFragmentManager(), "");
                 }
             });

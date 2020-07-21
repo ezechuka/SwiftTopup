@@ -1,10 +1,8 @@
 package com.javalon.swifttopup;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -12,26 +10,29 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 import io.paperdb.Paper;
 
 public class CardDetailsActivity extends AppCompatActivity {
 
     // edit texts
-    private EditText cardNumberEditText;
-    private EditText expiryDateEditText;
-    private EditText cvvEditText;
-    private EditText emailEditText;
+    private TextInputEditText cardNumberEditText;
+    private TextInputEditText expiryDateEditText;
+    private TextInputEditText cvvEditText;
+    private TextInputEditText emailEditText;
 
     // text views
     private TextView cardNumberTextView;
     private TextView expiryDateTextView;
     private TextView cvvTextView;
-    private Button confirmButton;
+    private MaterialButton confirmButton;
     private TextView emailTextView;
 
     @Override
@@ -185,7 +186,7 @@ public class CardDetailsActivity extends AppCompatActivity {
         });
 
         // get reference to confirm button
-        confirmButton = findViewById(R.id.confirmButon);
+        confirmButton = findViewById(R.id.confirmButton);
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -255,7 +256,7 @@ public class CardDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.clear_menu) {
-            AlertDialog.Builder clearDialog = new AlertDialog.Builder(CardDetailsActivity.this);
+            MaterialAlertDialogBuilder clearDialog = new MaterialAlertDialogBuilder(CardDetailsActivity.this);
             clearDialog.setTitle("Alert");
             clearDialog.setMessage("Do you want to clear card details?");
             clearDialog.setCancelable(true);

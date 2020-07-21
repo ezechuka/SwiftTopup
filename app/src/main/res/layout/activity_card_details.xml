@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     android:scrollbars="none"
     tools:context=".CardDetailsActivity">
@@ -46,8 +47,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/credit_card_font"
                 android:text="EXPIRE"
-                android:textColor="@android:color/white"
-                />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/expireTextView"
@@ -59,9 +59,7 @@
                 android:fontFamily="@font/credit_card_font"
                 android:gravity="center_horizontal"
                 android:text="@string/expiryDate"
-                android:textColor="@android:color/white"
-                />
-
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/cvvText"
@@ -73,8 +71,7 @@
                 android:layout_toEndOf="@id/expire"
                 android:fontFamily="@font/credit_card_font"
                 android:text="CVV"
-                android:textColor="@android:color/white"
-                />
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/cvvTextView"
@@ -109,38 +106,39 @@
 
         <ImageView
             android:id="@+id/paystack_logo"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_below="@id/creditCard"
             android:layout_margin="12dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/paystack" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cardInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/paystack_logo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Credit card number"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="6dp">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/card_number_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/creditCard"
-                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/edit_text_bg"
                 android:drawableStart="@drawable/ic_credit_card_black_24dp"
                 android:drawablePadding="4dp"
                 android:fontFamily="@font/product_sans_regular"
-                android:hint="Credit card number"
                 android:inputType="number"
                 android:maxLength="19"
                 android:padding="8dp" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:id="@+id/holder"
@@ -151,80 +149,80 @@
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="MM/YY"
                 android:layout_weight="2">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/expiryDateEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@drawable/edit_text_bg"
                     android:drawableStart="@drawable/ic_date_range_black_24dp"
                     android:drawablePadding="4dp"
                     android:fontFamily="@font/product_sans_regular"
-                    android:hint="MM/YY"
                     android:inputType="number"
                     android:maxLength="4"
                     android:padding="8dp" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginLeft="8dp"
+                android:hint="CVV"
                 android:layout_weight="2">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cvvEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/edit_text_bg"
                     android:drawableStart="@drawable/ic_lock_black_24dp"
                     android:drawablePadding="4dp"
                     android:fontFamily="@font/product_sans_regular"
-                    android:hint="CVV"
                     android:inputType="number"
                     android:maxLength="3"
                     android:padding="8dp" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/holder"
+            android:hint="Email Address"
+            android:layout_marginLeft="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginTop="16dp">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/creditCard"
-                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/edit_text_bg"
                 android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="4dp"
                 android:fontFamily="@font/product_sans_regular"
-                android:hint="Email Address"
                 android:inputType="textEmailAddress"
                 android:padding="8dp" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/confirmButon"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirmButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/emailHolder"
@@ -232,8 +230,10 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/button_bg"
+            android:backgroundTint="@color/colorAccent"
             android:elevation="12dp"
+            app:rippleColor="@android:color/white"
+            android:padding="12dp"
             android:fontFamily="@font/product_sans_regular"
             android:gravity="center_horizontal|center_vertical"
             android:text="CONFIRM DETAILS"
