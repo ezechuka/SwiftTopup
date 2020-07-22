@@ -1,6 +1,10 @@
 # SwiftTopup
 A mobile top-up vtu app made for getting quick & cheap top-ups like instant airtime/data recharge and others on the go.
 
+## **Libraries implemented**
+- Retrofit
+- Paystack SDK
+
 ## Databundle section
 ![Databundle section](https://github.com/ezechuka/SwiftTopup/blob/master/output-onlinepngtools_framed.png)
 
