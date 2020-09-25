@@ -9,10 +9,10 @@ A mobile top-up vtu app made for getting quick & cheap top-ups like instant airt
 
 
 ## Databundle section
-![Databundle section]<img src="https://github.com/ezechuka/SwiftTopup/blob/master/output-onlinepngtools_framed.png" style="max-width:100%;" width="350">
+<img src="https://github.com/ezechuka/SwiftTopup/blob/master/output-onlinepngtools_framed.png" style="max-width:100%;" width="350">
 
 ## Purchase dialog
-![Purchase dialog]<img src="https://github.com/ezechuka/SwiftTopup/blob/master/databundle.png" style="max-width:100%;" width="350">
+<img src="https://github.com/ezechuka/SwiftTopup/blob/master/databundle.png" style="max-width:100%;" width="350">
 
 ## Transaction history
-![Purchase dialog]<img src="https://github.com/ezechuka/SwiftTopup/blob/master/output-onlinepngtools(2)_framed.png" style="max-width:100%;" width="350">
+<img src="https://github.com/ezechuka/SwiftTopup/blob/master/output-onlinepngtools(2)_framed.png" style="max-width:100%;" width="350">
